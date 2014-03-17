@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css" />
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/jquery.mobile-1.4.0.min.js"></script>
+		<script id="custom-init-js" src="js/custom-init-js.js"></script>
+		<link rel="stylesheet" href="css/nomograma.css"/>
+		<!-- <script id="analytics" src="../js/analytics.js"></script>-->
+		<title>Nomograma</title>
+	</head>
+
+	<body>
+		<div data-role="page" id="index-page">
+			<div role="main" class="ui-content" style="min-height:200px">
+			
+				<label for="patient">Patient:</label>
+				<input type="text" id="patient" name="patient"/>
+				<p class="message" style="display:none" id="PatientMessage"></p>
+				<br/>
+				<label for="eye">Eye:</label>
+				<fieldset name="eye" id="eye" data-role="controlgroup" data-type="horizontal" data-mini="true">
+						<input type="radio" name="radio-choice" id="radio-choice-a" value="Left" checked="checked">
+						<label for="radio-choice-a">Left Eye</label>
+						<input type="radio" name="radio-choice" id="radio-choice-b" value="Right">
+						<label for="radio-choice-b">Right Eye</label>
+				</fieldset>
+				<br/>
+				<label for="nomogram">Nomogram:</label>
+				<select id="nomogram" name="nomogram"/>
+					<option value="ferrara5">Ferrara 5</option>
+					<option value="ferrara6">Ferrara 6</option>
+					<option value="intacs">INTACS</option>
+					<option value="intacssk">INTACS SK</option>
+					<option value="newintacs">New INTACS</option>
+					<!--<option value="combinado">Combinado</option>-->
+				</select>	
+				
+			<a id="link-cuestionary" href="#" data-role="button"  data-icon="arrow-r" data-iconpos="right" onclick="validateInicio();">Next</a>	
+			
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="cuestionary-page">
+			<div role="main" class="ui-content" style="min-height:200px">
+				
+				<div id="pathologyp" style="display:none">
+					<div class="title-box" style="float:left"><center><label class="title-label">Pathology</label></center></div>
+					<a href="#popuppathology" data-rel="popup"><img class="img-help" src="img/ayuda.png"/></a>
+					<div data-role="popup" id="popuppathology">
+					<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+					<p style="display:none" id="pathologyF5"><b>Pellucid:</b> Usually Oblate corneas where the asphericity value  (Q) is higher than the standard value -0,23 and high astigmatisms. </br><b>Oval:</b>Mild prolate corneas where asphericity values are between -0,23 and -1,30 and moderate astigmatisms.</br><b>Nipple:</b>Nipple Hyperprolate corneas showing high asphericity values and low astigmatisms.</p>
+					<p style="display:none"id="pathologyF6"><b>Central:</b>When the apex of the cone is located whithin the central 1-3 mm Optical Zone.<b>Pericentral:</b>When the apex of the cone is located whithin the central 2-4 mm Optical Zone.<b>Paracentral:</b>When the apex of the cone is located whithin the central 3-5 mm Optical Zone.<b> Bowtie:</b> When the ectasia is symmetric and bowtie shaped.</p>
+					</div>
+					<select id="pathology" name="pathology"/>
+					</select>
+				</div>
+					
+				<div id="keratometry" class="input-box" style="display:none">
+					<div class="title-box" style="float:left"><center><label class="title-label">Keratometry</label></center></div>
+					<a href="#popupkeratometry" data-rel="popup"><img class="img-help" src="img/ayuda.png"/></a>
+					<div data-role="popup" id="popupkeratometry">
+						<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+						<b>Keratometría (K1,K2):</b> Valores en dioptrías de la mayor curvatura (k1) y la menor curvatura(K2) de la cornea. Juntas pueden proporcionar una aproximación de la esfericidad Q que en ocasiones no está disponible.
+					</div>
+					<label for="k1d" >K1 Value (D) : Axis (degrees):</label>
+					<div class="keratometry-input" style="width:45%; float:left"><input  type="text" id="k1d" name="k1d"/></div>
+					<div class="keratometry-label"><label>X</label></div>
+					<div class="keratometry-input"><input type="text" id="k1axis" name="k1axis"/></div>
+					
+					<label for="k2d">K2 Value (D) : Axis (degrees):</label>
+					<div class="keratometry-input" style="width:45%; float:left"><input  type="text" id="k2d" name="k2d"/></div>
+					<div class="keratometry-label"><label>X</label></div>
+					<div class="keratometry-input"><input type="text" id="k2axis" name="k2axis"/></div>
+					
+					<p style="margin-top: 90px; display:none" class="message" id="keratometriaMezua"></p>	
+				</div>
+				
+				
+				
+				
+				<div id="coma" style="display:none;">
+					<div class="title-box" style="float:left"><center><label class="title-label">Coma</label></center> </div>
+						<a href="#popupcoma" data-rel="popup"><img class="img-help" src="img/ayuda.png"/></a>
+						<div data-role="popup" id="popupcoma">
+							<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+							<b>Coma:</b> TODO:Define
+						</div>
+					<label for="comaValue">Coma:</label>
+					<input type="text" id="comaValue" name="comaValue"/>
+					<p class="message" style="display:none" id="comaMezua"></p>
+				</div>
+				
+				
+				
+				
+				
+				
+				<div id="astigmatism" style="display:none;">
+					<div class="title-box" style="float:left"><center><label class="title-label">Astigmatism</label></center></div>
+						<a href="#popupastigmatism" data-rel="popup"><img class="img-help" src="img/ayuda.png"/></a>
+						<div data-role="popup" id="popupastigmatism">
+							<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+							<b>Coma:</b> TODO:Define
+						</div>
+						
+					<label for="astigmatismValue">Astigmatism:</label>
+					<input type="text" id="astigmatismValue" name="astigmatismValue" size="8"/>
+					<p class="message" style="display:none" id="astigmatismMezua"></p>
+				</div>				
+				
+				
+				
+				<div id="pachymetry" class="input-box" style="display:none">
+					<div class="title-box" style="float:left"><center><label class="title-label">Pachymetry</label></center></div>
+						<a href="#popupcoma" data-rel="popup"><img class="img-help" src="img/ayuda.png"/></a>
+						<div data-role="popup" id="popupcoma">
+							<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+							<b>Pachymetry</b> at the steepest axis means the thickness of the cornea at the  steepest axis, that is the thickness in the place of the incision.<br> In the manual technique it will help us to calculate the depth of the incision: 80% of the thickness at the steepest axis.<br> Thinnest pachymetry at the rings’ track means the thinnest thickness where the  will go through. Never take the centre of the cornea as a reference for the thinnest thickness. In the femto technique it will help us to calculate the depth  of the incision: 70% of the thinnest pachymetry in the rings’ trajectory.
+						</div>
+					<label for="patxisteep">At the steepest axis (μm):</label>
+					<input  type="text" id="patxisteep" name="patxisteep"/>
+					<label for="patxithinnest">Thinnest pach in the rings tranck (μm):</label>
+					<input  type="text" id="patxithinnest" name="patxithinnest"/>
+					
+					<p class="message" style="display:none" id="patximetriaMezua"></p>
+				</div>
+				
+				
+				<!--SPHERE POWER&ASTIGMATISM&AXIS-->
+				<div id="refraction" class="input-box" style="display:none">
+				<div class="title-box" style="float:left"><center><label class="title-label">Refraction</label></center></div>
+					<a href="#popuprefraction" data-rel="popup"><img class="img-help" src="img/ayuda.png"/></a>
+					<div data-role="popup" id="popuprefraction">
+						<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+						<b>refraction:</b> todo define
+					</div>
+					<div id="refractionlabel">
+						<label for="patxisteep">Sphere Power:</label>
+						<input type="text" id="spherePowerValue" name="spherePowerValue" size="4"/>
+						<label for="patxisteep">Cyl : Axis (degrees):</label>
+						<div class="refraction-input" style="width:45%; float:left">
+						<input type="text" id="refractionValue" name="refractionValue" size="4"/></div>
+						<div class="refraction-label"><label>X</label></div>
+						<div class="refraction-input"><input type="text" id="refractionAxis"  name="refractionAxis" size="4"/> </div>
+					</div>	
+					<p class="message" style="margin-top: 90px; display:none" id="refractionMezua"></p>
+				</div>				
+				
+				
+				<!--CONE APEX-->
+				<div id="apex" class="input-box" style="display:none">
+					<div class="title-box" style="float:left"><center><label class="title-label">Cone Apex</label></center></div>
+					<a href="#popupapex" data-rel="popup"><img class="img-help" src="img/ayuda.png"/></a>
+					<div data-role="popup" id="popupapex">
+						<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+						<b>Cone apex Position</b> TO DO"
+					</div>
+					
+					<label id="apexConeP">Cone Apex Position:</label>
+						<select id="coneApex" name="coneApex" />						
+							<option value="Centered">Centered</option>
+							<option value="Decentered">Decentered</option>						
+						</select>
+					<div id="coneApexNewIntacs"	style="display:none">
+						<label id="coneApexPosText">Position from topographical zone:</label>
+						<input type="text" id="coneApexPos" name="coneApexPos" size="3"/>
+						<p class="message" style="display:none" id="coneApexMezua"></p>
+					</div>
+				</div>		
+			
+				<div id="asphericity" class="input-box" style="display:none">
+					<div class="title-box" style="float:left"><center><label class="title-label">Asphericity</label></center></div>
+					<a href="#popupasphericity" data-rel="popup"><img class="img-help" src="img/ayuda.png"/></a>
+						<div data-role="popup" id="popupasphericity">
+							<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+							<b>Asphericity</b> is also known as Q value. This value is optional but it is better if you can introduce it. Some topographers won’t show it, but some others do. If you are going to introduce this Q value, ALWAYS use the Q value at 30º or 5mm optical zone. Otherwise, it won’t work.
+					</div>
+					
+					<label for="q">At the steepest axis (μm) </label>
+					<input  type="text" id="q" name="q" onkeypress="manualQ()"/>
+					
+					<p  class="message" style="display:none" id="qMezua"></p>
+				</div>
+			<a id="link-result" style="margin-top:60px" href="#" data-role="button"  data-icon="arrow-r" data-iconpos="right" onclick="validateCuestionario();">Next</a>
+				<a id="link-result" style="margin-top:60px" href="#" data-role="button"  data-icon="arrow-r" data-iconpos="right">back</a>
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		<div data-role="page"id="result-page">
+			<div role="main" class="ui-content" style="min-height:300px">
+				
+				
+				<div id="optionsselecteddiv">
+					<div class="title-box"><label class="title-label">OPTION SELECTED</label></div>
+					<label id="patientlbl">Patient: <span id="patient-result" name="patient-result" ></span></label>				
+					<label id="eyelbl">Eye: <span id="eye-result" name="eye-result"></span></label>	
+					<label id="nomogramlbl">Nomogram: <span id="nomogram-result" name="nomogram-result"></span></label>	
+				</div>
+				
+				<div id="keratometryDiv" >
+					<div class="title-box"><label class="title-label">KERATOMETRY</labeldiv>
+					<div id="k1div">
+						<label id="keratometryk1dp">K1: <span id="k1d-result" name="k1d-result"></span>   Axis:<span id="k1axis-result" name="k1axis-result"></span></label>
+					</div>
+					<div id="k2div">
+						<label id="keratometryk2dp">K2: <span id="k2d-result" name="k2d-result"></span>   Axis: <span id="k2axis-result" name="k2axis-result"></span></label>
+					</div>
+					
+					<!-- Para  Ferrara 5 y 6 puede tener valor de q --> 
+					<label style="display:none" id="qp">Q: <span id="q-result" name="q-result"></span></label>
+				</div>
+				
+				<div id="pachymetryDiv" style="display:none">
+					<div class="title-box"><label class="title-label">PACHYMETRY</label></div>
+					<label id="patxisteepp">At steepest axis: <span id="patxisteep-result" name="patxisteep-result" ></span></label>				
+					<label id="patxithinnestp">Thinnest in rings track: <span id="patxithinnest-result" name="patxithinnest-result"></span></label>				
+				</div>
+				
+				
+				<div id="cornealdivintacs" style="display:none">
+				<div class="title-box"><label class="title-label">CORNEAL CENTERING</label></div>
+				<label id="corneallbl">Tunnels are to be placed at 7mm calculate based on geometric center of the cornea using an 11 mm marker<span id="cornealspan" name="cornealspan" ></span></label>				
+				</div>
+		
+				
+				
+				
+				
+				<div id="astigmatismDiv" style="display:none">
+					<div class="title-box"><label class="title-label">ASTIGMATISM</label></div>
+					<label id="astigmatismlbl">At steepest axis: <span id="astigmatismvalue" name="astigmatismvalue" ></span></label>				
+				</div>
+				
+				<div id="comaDiv" style="display:none">
+					<div class="title-box"><label class="title-label">COMA</label></div>
+					<label id="comalbl">At steepest axis: <span id="comavalue-result" name="comavalue-result" ></span></label>				
+				</div>
+				
+				<div id="refractionDiv" style="display:none">
+					<div class="title-box"><label class="title-label">REFRACTION</label></div>
+					<label id="spherepowerlbl">Sphere Power: <span id="spherepowervalue-result" name="spherepowervalue-result" ></span></label>
+					<label id="cyllbl">Sphere Power: <span id="cylvalue-result" name="cylvalue-result" ></span></label>
+					<label id="axislbl">Sphere Power: <span id="axisvalue-result" name="axisvalue-result" ></span></label>	
+				</div>
+				<div id="coneapexDiv" style="display:none">
+					<div class="title-box"><label class="title-label">CONE APEX</label></div>
+					<label id="coneapexlbl">Cone Apex Position: <span id="coneapexvalue-result" name="coneapexvalue-result" ></span></label>
+					<label style="display:block" id="coneapexposlbl">Position from topographical: <span id="coneapexpos-result" name="coneapexpos-result" ></span></label>
+				</div>
+				
+				
+				
+				
+				<div id="ferraraRingDiv" style="display:none">
+					<div id="ferraraRingHead" class="title2-box" style="float:left"><label class="title-label">RINGS</label></div>
+					<a href="#popupmanualHead" data-rel="popup"><img class="img-help" src="img/ayuda.png"/></a>
+					<div data-role="popup" id="popupmanualHead">
+						<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+						<!-- Si anillos =2 toltip  -->
+						<p style="display:none" id="ayuda-2ring">The thicker ring will be placed in the most ecstasic area. Normally, thicker segments are placed in the temporal side and the thinner segments in the nasal side.<br>This drawing is a general guide and can be different in unusual cases. The accuracy to predict the final correct result is directly proportional to the accuracy of the sizes introduced. The guarantee covers only the segments’ manufacturing defect.</p>
+						<!-- Si no anillos=2   -->
+						<p style="display:none" id="ayuda-n2ring">This drawing is a general guide and can be different in unusual cases. The accuracy to predict the final correct result is directly proportional to the accuracy of the sizes introduced. The guarantee covers only the segments’ manufacturing defect.</p>
+					</div>
+					<label id="ferrararingp">One Segment: <span id="ferrararing-result" name="ferrararing-result"></span></label>
+					<!-- Solo para central -->
+					<label style="display:none" id="loz">OZ: <span id="oz-result" name="oz-result"></span>mm</label>
+					<!-- Si dos anillos muestro esta linea -->
+					<label style="display:none" id="ferrararing2p">Other Segment: <span id="ferrararing2-result" name="ferrararing2-result"></span></label>
+				</div>
+				
+				<div id="incisionDiv">
+					<div class="title-box"><label class="title-label">INCISION</label></div>
+					<!-- FERRARA5 AND FERRARA6 -->
+					<div id="incisionF5F6" style="display:none">
+						<label id="incisionp">Incision at: <span id="incision-result" name="incision-result"></span></label>
+						<label id="incisiondepthp">Incision depth: <span id="incisiondepth-result" name="incisiondepth-result"></span></label>
+						<label id="manualExplain">(80% of corneal thickness at the steepest axis)</label>
+					</div>
+					<!-- INTACS INTACSSK NEWINTACS-->
+					<div id="incisionIntacs" style="display:none">					
+						<label id="manualHead" class="title-label">Manual </label>					
+						<label id="ManualIncisionLocation" align="justify"><b>Location:</b>Incision location should be calculated based on the topographic steep meridian of the keratometric map in the 3mm zone located 90 degrees from the refractive axis in minus cylinder. Very few cases will not coincide. If so you should choose the topographical axis if the BCVA is 20/40 or worse or the refractive axis if the BCVA is 20/40 or better When creating the incision for the 210 ring, follow instructions above but make incision 30° less than the original sight. Use the original sight as a marker to push the ring up to that point.</label>
+						<label id="ManualIncisionDepth" align="justify"><b>Depth:</b>Ultrasonic pachymetry should be used at the incision sight in the surgical room (a minimum of 450 microns if using 500 SK) the incision should be performed with the diamond blade calculated at 80% of the value obtained from the pachymetry.</label>
+					</div>
+					
+					<div id="laserdiv" style="display:none" class="title2-box" style="float:left"><label class="title-label">Laser (FEMTO)</label></div>
+						<a href="#popupLaser" data-rel="popup"><img class="img-help" src="img/ayuda.png"/></a>
+						<div data-role="popup" id="popupLaser">
+							<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+							Please contact your femtosecond laser’s manufacturer in order to get the best parameters to introduce.		
+					</div>
+					<label id="laserExplain">Please contact your laser manufacturer…</label>
+				</div>	
+			
+			
+				<div id="imgNomoDiv">
+					<div class="title-box"><label class="title-label">Imagen</label></div>
+					<div id="imgNomo" style="height:300px">
+					
+					</div>
+				</div>
+
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+	</body>
+</html>	
+	
+	
+  

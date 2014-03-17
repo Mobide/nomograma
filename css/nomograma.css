@@ -1,0 +1,144 @@
+/************************* F O N T S********************************/
+
+@font-face {
+	font-family: 'Gill Sans MT Condensed'; 
+	src: url('../font/gill_sans_mt_condensed.eot'); 
+	src: url('../font/gill_sans_mt_condensed.eot?#iefix') format('embedded-opentype'), 
+			 url('../font/gill_sans_mt_condensed.svg#Gill Sans MT Condensed') format('svg'), 
+			 url('../font/gill_sans_mt_condensed.woff') format('woff'), 
+			 url('../font/gill_sans_mt_condensed.ttf') format('truetype');
+  font-weight: normal; 
+	font-style: normal;
+}
+/*******************************************************************/
+/*********************** H E A D E R *******************************/
+
+.nomo-header{
+	background-image: url("images/madera.jpg")!important;
+	height:60px;
+	margin-top:-1px;
+	border-color: #000000 !important;
+
+}
+
+.nomo-header-title{
+	text-transform:uppercase;
+	font-family: 'Gill Sans MT Condensed';
+	font-size:22px;
+	margin-top:6px;
+	color: #ffffff;
+	text-shadow:3px 3px 4px #111;
+	margin-bottom: 0px;
+}
+.nomo-header-subtitle{
+	text-transform:uppercase;
+	font-family: 'Gill Sans MT Condensed';
+	font-size:20px;
+	margin-top:12px;
+	color: #ffffff;
+	text-shadow:3px 3px 4px #111;
+	margin-top: 0px;
+}
+
+
+.nomo-header-img{
+	margin-top:14px;
+}
+
+.nomo-header-menu{
+	margin-top:3px !important;
+}
+
+.nomo-header-lang{
+	margin-top:9px !important;
+}
+
+.nomo-header .ui-btn-left{
+	padding: 0;
+	background: none;
+	border: 0;
+}
+.ui-header .ui-btn-right{
+	padding-top: 0px!important;
+	padding-bottom: 6px!important;
+	padding-left: 6px!important;
+	padding-right: 6px!important;
+	margin-top: 3px!important;
+	background: none;
+	border: none;
+}
+
+
+
+/*******************************************************************/
+/******************** C O N T E N E D O R*********************/
+.ui-content{
+margin: 2%px;
+font-size: 20px;
+}
+.message{
+border: solid red 1px;
+padding: 10px;
+color: red;
+font-size:18px;
+}
+/*POP UP*/
+.ui-popup.ui-body-inherit{
+padding: 8px 25px 8px 20px;
+}
+.img-help{
+width:25px;
+height:auto;
+margin-left: 5px;
+margin-top: 4px;
+margin-bottom:.4em
+}
+.input-box{
+margin-top: 25px;
+}
+
+
+/*******************************************************************/
+/******************** C U E S T I O N A R Y *********************/
+.keratometry-input{
+float:left;
+width:46%;
+margin-bottom:30px
+}
+.keratometry-label{
+text-align: center;
+float:left;
+margin-top:23px!important;
+margin-left:2.5%!important;
+margin-right:2.5%!important;
+}
+.title-label{
+font-size:24px!important;
+}
+
+.refraction-input{
+float:left;
+width:46%;
+margin-bottom:30px;
+}
+.refraction-label{
+text-align: center;
+float:left;
+margin-top:23px!important;
+margin-left:2.5%!important;
+margin-right:2.5%!important;
+}
+
+
+
+
+
+/*******************************************************************/
+/******************** T R A N S I C I O N E S **********************/
+table { width:100%; border-spacing: 0; }
+th { text-align:left; }
+th h3 { margin:.8em 0 .6em 1.5em; }
+th, td { vertical-align:top; border-top:1px solid #eee; padding: 1px 3px; background-color:#fcfcfc; }
+td .ui-btn { margin:.4em 0 .5em 0; }
+td .ui-btn-inner { padding: .4em 15px; }
+/*******************************************************************/
