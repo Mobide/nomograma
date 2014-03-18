@@ -55,7 +55,10 @@ function ocultarResultado() {
 	$("#cornealdivintacs").hide();
 	$("#incisionIntacs").hide();
 	$("#ferrararing2p").hide();
-			
+	$("#cornealdivnewintacst6").hide();
+	$("#cornealdivnewintacst7").hide();
+	$("#cornealdivintacssk").hide();		
+	$("#cornealdivintacsskDecen").hide();
 	}
 
 	function mostrar()
@@ -929,7 +932,7 @@ function ocultarResultado() {
 	function mostratCalculos()
 	{
 	/*valore por defecto para que si no se declara la variable no falle*/
-		grosor =0;grosor2=0;grado=0;grado2=0;
+
 		var nomogram= tipeNomogram();
 	
 		$("#patient-result").html($("#patient").val());
@@ -950,7 +953,8 @@ function ocultarResultado() {
 		else if($("#nomogram").val()=="newintacs"){
 		$("#nomogram-result").html("newintacs");
 		}
-
+		grosor =0;grosor2=0;grado=0;grado2=0;
+		anillos=1;
 		k1d="";
 		k1axis="";
 		k2d="";
@@ -1725,7 +1729,6 @@ function ocultarResultado() {
 		else if(nomogram=="intacssk")
 		{
 			$("#pachymetryDiv").show();
-			$("#cornealdivintacs").show();
 			$("#ferraraRingDiv").show();
 			$("#incisionIntacs").show();
 			$("#laserdiv").show();
@@ -1741,7 +1744,8 @@ function ocultarResultado() {
 
 			
 			if (coneapex=='Centered')
-			{					
+			{		
+				$("#cornealdivintacssk").show();			
 				anillos=2;			
 				if      ( spherepower>-1.0)    {grosor = 210;grosor2=210;grado=150;grado2=150;}			
 				else if (-1.0>=spherepower && spherepower>-2.0) {grosor = 250;grosor2=250;grado=150;grado2=150;}
@@ -1752,6 +1756,8 @@ function ocultarResultado() {
 			}
 			else if ((coneapex=='Decentered') && cyl >-3.0)
 			{
+			
+				$("#cornealdivintacsskDecen").show();
 				anillos=2;
 				if      (0>=spherepower && spherepower>-0.75)   {grosor = 210;grosor2=210;grado=150;grado2=150;}
 				else if (-0.75>=spherepower && spherepower>-1.0){grosor = 230;grosor2=230;grado=150;grado2=150;}
@@ -1767,6 +1773,7 @@ function ocultarResultado() {
 			}			
 			else if ((coneapex=='Decentered') && cyl <=-3.0)
 			{
+				$("#cornealdivintacsskDecen").show();
 				anillos=2;
 				if (-3.0>=cyl && cyl>-5.0)      {grosor = 350;grosor2=210;grado=150;grado2=150;}
 				else if (-5.0>=cyl && cyl>-7.0) {grosor = 400;grosor2=210;grado=150;grado2=150;}
@@ -1809,7 +1816,6 @@ function ocultarResultado() {
 		else if(nomogram=="newintacs")
 		{
 			$("#pachymetryDiv").show();
-			$("#cornealdivintacs").show();
 			$("#ferraraRingDiv").show();
 			$("#incisionIntacs").show();
 			$("#laserdiv").show();
@@ -1829,7 +1835,7 @@ function ocultarResultado() {
 		
 		
 		
-		
+			tunel=0;
 			pathology='';
 			sphericalEquivalent = spherePower + (cyl/2.0);		
 
@@ -1904,6 +1910,17 @@ function ocultarResultado() {
 				else if ( ( spherepower<=3.0 && spherepower>=-1.0) && (cyl<=-7.0) ) {anillos=1;grosor = 500;grosor2=0;grado=150;grado2=0;}								
 				else if ( cyl<spherepower &&  coneapex=='Decentered' && cyl<=-3.0 && spherepower>=-2.0) {anillos=1;grosor = 250;grosor2=0;grado=210;grado2=0;}
 			}	
+				
+			if (tunel==6){
+				$("#cornealdivnewintacst6").show();
+				
+			}
+			if (tunel==7){
+				$("#cornealdivnewintacst7").show();
+			}							
+				
+				
+				
 				
 			//Incision
 			manualincisiondepth=(patxisteep*80)/100;
@@ -1988,7 +2005,7 @@ function ocultarResultado() {
 		}												
 		
 		//"<img src=" + ringType + "id='ring1' style='position:absolute;top:0px;left:195px;z-index:999;transform-origin: 50% 50%;transform: rotate(" + RingRotationValue + "deg);-moz-transform-origin: 50% 50%;-moz-Transform:rotate(" + RingRotationValue + "deg);-ms-transform-origin: 50% 50%;-ms-Transform:rotate(" + RingRotationValue + "deg);-webkit-transform-origin: 50% 50%;-webkit-Transform:rotate(" + RingRotationValue + "deg)'/>";					
-		$("#imgNomo").html( "<img src='img/OjoBaseNew.png' id='ojo' style='position:absolute;bottom:0px;left:20px;'/><img src='" + ringType + "' id='ring1' style='position:absolute;bottom:0px;left:20px;;z-index:999;transform-origin: 50% 50%;transform: rotate(" + RingRotationValue + "deg);-moz-transform-origin: 50% 50%;-moz-Transform:rotate(" + RingRotationValue + "deg);-ms-transform-origin: 50% 50%;-ms-Transform:rotate(" + RingRotationValue + "deg);-webkit-transform-origin: 50% 50%;-webkit-Transform:rotate(" + RingRotationValue + "deg)'/>" );
+		$("#imgNomo").html( "<img src='img/OjoBaseNew.png' id='ojo' style='position:absolute;bottom:60px;left:20px;'/><img src='" + ringType + "' id='ring1' style='position:absolute;bottom:60px;left:20px;;z-index:999;transform-origin: 50% 50%;transform: rotate(" + RingRotationValue + "deg);-moz-transform-origin: 50% 50%;-moz-Transform:rotate(" + RingRotationValue + "deg);-ms-transform-origin: 50% 50%;-ms-Transform:rotate(" + RingRotationValue + "deg);-webkit-transform-origin: 50% 50%;-webkit-Transform:rotate(" + RingRotationValue + "deg)'/>" );
 		
 		
 		
@@ -2004,8 +2021,8 @@ function ocultarResultado() {
 		if (anillos==2)
 		{
 		RingRotationValue2 = RingRotationValue + 180;	
-			$("#imgNomo").html( "<img src='img/OjoBaseNew.png' id='ojo' style='position:absolute;bottom:0px;left:20px;'/><img src='" + ringType + "' id='ring1' style='position:absolute;bottom:0px;left:20px;;z-index:999;transform-origin: 50% 50%;transform: rotate(" + RingRotationValue + "deg);-moz-transform-origin: 50% 50%;-moz-Transform:rotate(" + RingRotationValue + "deg);-ms-transform-origin: 50% 50%;-ms-Transform:rotate(" + RingRotationValue + "deg);-webkit-transform-origin: 50% 50%;-webkit-Transform:rotate(" + RingRotationValue + "deg)'/>" +
-			"<img src='" + ringType2 + "' id='ring1' style='position:absolute;bottom:0px;left:20px;;z-index:999;transform-origin: 50% 50%;transform: rotate(" + RingRotationValue2 + "deg);-moz-transform-origin: 50% 50%;-moz-Transform:rotate(" + RingRotationValue2 + "deg);-ms-transform-origin: 50% 50%;-ms-Transform:rotate(" + RingRotationValue2 + "deg);-webkit-transform-origin: 50% 50%;-webkit-Transform:rotate(" + RingRotationValue2 + "deg)'/>"
+			$("#imgNomo").html( "<img src='img/OjoBaseNew.png' id='ojo' style='position:absolute;bottom:60px;left:20px;'/><img src='" + ringType + "' id='ring1' style='position:absolute;bottom:60px;left:20px;;z-index:999;transform-origin: 50% 50%;transform: rotate(" + RingRotationValue + "deg);-moz-transform-origin: 50% 50%;-moz-Transform:rotate(" + RingRotationValue + "deg);-ms-transform-origin: 50% 50%;-ms-Transform:rotate(" + RingRotationValue + "deg);-webkit-transform-origin: 50% 50%;-webkit-Transform:rotate(" + RingRotationValue + "deg)'/>" +
+			"<img src='" + ringType2 + "' id='ring1' style='position:absolute;bottom:60px;left:20px;;z-index:999;transform-origin: 50% 50%;transform: rotate(" + RingRotationValue2 + "deg);-moz-transform-origin: 50% 50%;-moz-Transform:rotate(" + RingRotationValue2 + "deg);-ms-transform-origin: 50% 50%;-ms-Transform:rotate(" + RingRotationValue2 + "deg);-webkit-transform-origin: 50% 50%;-webkit-Transform:rotate(" + RingRotationValue2 + "deg)'/>"
 			);
 		}					
 

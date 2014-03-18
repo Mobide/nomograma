@@ -1,49 +1,57 @@
 /************************* F O N T S********************************/
 
 @font-face {
-	font-family: 'Gill Sans MT Condensed'; 
-	src: url('../font/gill_sans_mt_condensed.eot'); 
-	src: url('../font/gill_sans_mt_condensed.eot?#iefix') format('embedded-opentype'), 
-			 url('../font/gill_sans_mt_condensed.svg#Gill Sans MT Condensed') format('svg'), 
-			 url('../font/gill_sans_mt_condensed.woff') format('woff'), 
-			 url('../font/gill_sans_mt_condensed.ttf') format('truetype');
-  font-weight: normal; 
+	font-family: 'GothamBold';
+	src: url('../font/Gotham_bold.eot');
+	src: local('gothambold'), url('../font/gotham_bold.ttf') format('truetype');
+	
+	font-family: 'Merriweather';
+	src: url('../font/Merriweather-Light.ttf');
+	src: local('Merriweather-Light'), url('../font/Merriweather-Light.ttf') format('truetype');
+	
+	
+	font-weight: normal; 
 	font-style: normal;
 }
 /*******************************************************************/
 /*********************** H E A D E R *******************************/
 
+/* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_10146">Text with this font applied</p> */
+
 .nomo-header{
-	background-image: url("images/madera.jpg")!important;
-	height:60px;
-	margin-top:-1px;
-	border-color: #000000 !important;
+background: #fee300;
+background: -moz-linear-gradient(center top , #8B5C94, #BC8FC0) repeat scroll 0 0 transparent !important;
+background: -webkit-gradient(linear, left center, left top, from(#8B5C94), to(#BC8FC0)) !important;
+background: -webkit-linear-gradient(center, #8B5C94,#BC8FC0)!important;
+background: -ms-linear-gradient(center, #8B5C94, #BC8FC0)!important;
+background: -o-linear-gradient(center, #8B5C94, #BC8FC0)!important;
+background: linear-gradient(center, #8B5C94, #BC8FC0)!important;
+filter: progid: DXImageTransform.Microsoft.gradient(startColorStr='#8B5C94', EndColorStr='#BC8FC0')!important;
+color: #FFFFFF !important;
 
 }
-
 .nomo-header-title{
-	text-transform:uppercase;
-	font-family: 'Gill Sans MT Condensed';
-	font-size:22px;
-	margin-top:6px;
-	color: #ffffff;
-	text-shadow:3px 3px 4px #111;
-	margin-bottom: 0px;
+text-align:center;
+padding:3px;
+border: solid #421F42 2px;
+}
+
+.nomo-header-title span{
+color: white;
+vertical-align: middle;
+line-height: 30px;
+font-family: 'Merriweather' !important;
+font-size:24px;
+}
+.nomo-header-title img{
+vertical-align: middle;
 }
 .nomo-header-subtitle{
-	text-transform:uppercase;
-	font-family: 'Gill Sans MT Condensed';
-	font-size:20px;
-	margin-top:12px;
-	color: #ffffff;
-	text-shadow:3px 3px 4px #111;
-	margin-top: 0px;
+	
 }
 
 
-.nomo-header-img{
-	margin-top:14px;
-}
+
 
 .nomo-header-menu{
 	margin-top:3px !important;
@@ -73,7 +81,7 @@
 /*******************************************************************/
 /******************** C O N T E N E D O R*********************/
 .ui-content{
-margin: 2%px;
+margin: 2%;
 font-size: 20px;
 }
 .message{
@@ -95,11 +103,58 @@ margin-bottom:.4em
 }
 .input-box{
 margin-top: 25px;
+
+}
+/**************************** I N D E X*********************************/
+
+
+#eye .ui-btn-active{
+background-color: #8B5C94;
+border-color: #421F42;
+color: #fff;
+text-shadow: 0 1px 0 #059;
+}
+#link-cuestionary{
+background: #fee300;
+background: -moz-linear-gradient(center top , #8B5C94, #BC8FC0) repeat scroll 0 0 transparent !important;
+background: -webkit-gradient(linear, left center, left top, from(#8B5C94), to(#BC8FC0)) !important;
+background: -webkit-linear-gradient(center, #8B5C94,#BC8FC0)!important;
+background: -ms-linear-gradient(center, #8B5C94, #BC8FC0)!important;
+background: -o-linear-gradient(center, #8B5C94, #BC8FC0)!important;
+background: linear-gradient(center, #8B5C94, #BC8FC0)!important;
+filter: progid: DXImageTransform.Microsoft.gradient(startColorStr='#8B5C94', EndColorStr='#BC8FC0')!important;
+color: #FFFFFF !important;
 }
 
 
 /*******************************************************************/
 /******************** C U E S T I O N A R Y *********************/
+
+#link-result{
+background: #fee300;
+background: -moz-linear-gradient(center top , #8B5C94, #BC8FC0) repeat scroll 0 0 transparent !important;
+background: -webkit-gradient(linear, left center, left top, from(#8B5C94), to(#BC8FC0)) !important;
+background: -webkit-linear-gradient(center, #8B5C94,#BC8FC0)!important;
+background: -ms-linear-gradient(center, #8B5C94, #BC8FC0)!important;
+background: -o-linear-gradient(center, #8B5C94, #BC8FC0)!important;
+background: linear-gradient(center, #8B5C94, #BC8FC0)!important;
+filter: progid: DXImageTransform.Microsoft.gradient(startColorStr='#8B5C94', EndColorStr='#BC8FC0')!important;
+color: #FFFFFF !important;
+border-color: #421F42;
+}
+#linkback-index{
+background: #fee300;
+background: -moz-linear-gradient(center top , #636363, #A1A1A1) repeat scroll 0 0 transparent !important;
+background: -webkit-gradient(linear, left center, left top, from(#636363), to(#A1A1A1)) !important;
+background: -webkit-linear-gradient(center, #636363,#A1A1A1)!important;
+background: -ms-linear-gradient(center, #636363, #A1A1A1)!important;
+background: -o-linear-gradient(center, #636363, #A1A1A1)!important;
+background: linear-gradient(center, #636363, #A1A1A1)!important;
+filter: progid: DXImageTransform.Microsoft.gradient(startColorStr='#636363', EndColorStr='#A1A1A1')!important;
+color: #FFFFFF !important;
+
+}
+
 .keratometry-input{
 float:left;
 width:46%;
@@ -130,7 +185,11 @@ margin-right:2.5%!important;
 }
 
 
-
+/*********************R E S U L T ***********************************/
+.separadorLinea{
+margin-top: 30px;
+margin-bottom: 30px;
+}
 
 
 /*******************************************************************/

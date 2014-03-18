@@ -15,6 +15,14 @@
 
 	<body>
 		<div data-role="page" id="index-page">
+		
+			<div class="nomo-header" data-role="header" >
+				<div class="nomo-header-title">
+					<img id="logo" class="nomo-header-img"  alt="Nomogram" src="img/AJL_icon.png" /> 
+					<span>Nomogram</span>
+				</div>
+			</div><!-- /header -->
+		
 			<div role="main" class="ui-content" style="min-height:200px">
 			
 				<label for="patient">Patient:</label>
@@ -35,8 +43,8 @@
 					<option value="ferrara6">Ferrara 6</option>
 					<option value="intacs">INTACS</option>
 					<option value="intacssk">INTACS SK</option>
-					<option value="newintacs">New INTACS</option>
-					<!--<option value="combinado">Combinado</option>-->
+					<!--<option value="newintacs">New INTACS</option>-->
+					
 				</select>	
 				
 			<a id="link-cuestionary" href="#" data-role="button"  data-icon="arrow-r" data-iconpos="right" onclick="validateInicio();">Next</a>	
@@ -46,7 +54,16 @@
 		
 		
 		<div data-role="page" id="cuestionary-page">
+			<div class="nomo-header" data-role="header" >
+			<div class="nomo-header-title">
+				<img id="logo" class="nomo-header-img"  alt="Nomogram" src="img/AJL_icon.png" /> 
+				<span>Nomogram</span>
+			</div>
+			</div>
+		
+		
 			<div role="main" class="ui-content" style="min-height:200px">
+	
 				
 				<div id="pathologyp" style="display:none">
 					<div class="title-box" style="float:left"><center><label class="title-label">Pathology</label></center></div>
@@ -186,8 +203,11 @@
 					
 					<p  class="message" style="display:none" id="qMezua"></p>
 				</div>
-			<a id="link-result" style="margin-top:60px" href="#" data-role="button"  data-icon="arrow-r" data-iconpos="right" onclick="validateCuestionario();">Next</a>
-				<a id="link-result" style="margin-top:60px" href="#" data-role="button"  data-icon="arrow-r" data-iconpos="right">back</a>
+				<div class="ui-grid-a">
+					<div class="ui-block-a"><a id="linkback-index" style="margin-top:60px" href="/#index-page" data-role="button"  data-icon="arrow-l" data-iconpos="left">Back</a></div>
+					<div class="ui-block-b"><a id="link-result" style="margin-top:60px" href="#" data-role="button"  data-icon="arrow-r" data-iconpos="right" onclick="validateCuestionario();">Next</a></div>
+				</div>
+				
 			</div>
 		</div>
 		
@@ -196,18 +216,24 @@
 		
 		
 		<div data-role="page"id="result-page">
+			<div class="nomo-header" data-role="header" >
+				<div class="nomo-header-title">
+					<img id="logo" class="nomo-header-img"  alt="Nomogram" src="img/AJL_icon.png" /> 
+					<span>Nomogram</span>
+				</div>
+			</div><!-- /header -->
+			
+			
 			<div role="main" class="ui-content" style="min-height:300px">
-				
-				
 				<div id="optionsselecteddiv">
-					<div class="title-box"><label class="title-label">OPTION SELECTED</label></div>
+					<div class="title-box"><label class="title-label">Patient</label></div>
 					<label id="patientlbl">Patient: <span id="patient-result" name="patient-result" ></span></label>				
 					<label id="eyelbl">Eye: <span id="eye-result" name="eye-result"></span></label>	
 					<label id="nomogramlbl">Nomogram: <span id="nomogram-result" name="nomogram-result"></span></label>	
 				</div>
 				
 				<div id="keratometryDiv" >
-					<div class="title-box"><label class="title-label">KERATOMETRY</labeldiv>
+					<div class="title-box"><label class="title-label">Keratometry</labeldiv>
 					<div id="k1div">
 						<label id="keratometryk1dp">K1: <span id="k1d-result" name="k1d-result"></span>   Axis:<span id="k1axis-result" name="k1axis-result"></span></label>
 					</div>
@@ -220,39 +246,65 @@
 				</div>
 				
 				<div id="pachymetryDiv" style="display:none">
-					<div class="title-box"><label class="title-label">PACHYMETRY</label></div>
+					<div class="title-box"><label class="title-label">Pachymetry</label></div>
 					<label id="patxisteepp">At steepest axis: <span id="patxisteep-result" name="patxisteep-result" ></span></label>				
 					<label id="patxithinnestp">Thinnest in rings track: <span id="patxithinnest-result" name="patxithinnest-result"></span></label>				
 				</div>
 				
 				
-				<div id="cornealdivintacs" style="display:none">
-				<div class="title-box"><label class="title-label">CORNEAL CENTERING</label></div>
-				<label id="corneallbl">Tunnels are to be placed at 7mm calculate based on geometric center of the cornea using an 11 mm marker<span id="cornealspan" name="cornealspan" ></span></label>				
+				<div>
+				<hr class="separadorLinea"    />
 				</div>
-		
 				
 				
+				<!-- Si el nomograma es intaks     -->
+				<div id="cornealdivintacs" style="display:none">
+					<div class="title-box"><label class="title-label">Corneal centering</label></div>
+					<label>Tunnels are to be placed at 7mm calculate based on geometric center of the cornea using an 11 mm marker</label>				
+				</div>
 				
+				<!-- Intask sk y decentered-->
+				<div id="cornealdivintacsskDecen" style="display:none">
+					<div class="title-box"><label class="title-label">Corneal centering</label></div>
+					<label>Tunnels are to be placed at 7mm calculate based on geometric center of the cornea using an 11 mm marker</label>				
+				</div>
+				
+				<!-- Intask sk y no decentered-->
+				<div id="cornealdivintacssk" style="display:none">
+					<div class="title-box"><label class="title-label">Corneal centering</label></div>
+					<label>Tunnels are to be placed at 6mm calculate based upon pupillary center.</label>				
+				</div>
+				
+				<!-- New Intask and tunnel=6-->
+				<div id="cornealdivnewintacst6" style="display:none">
+					<div class="title-box"><label class="title-label">Corneal centering</label></div>
+					<label>Tunnels are to be placed at 6mm calculate based upon pupillary center.</label>				
+				</div>
+				
+				<!-- New Intask and tunnel=7-->
+				<div id="cornealdivnewintacst7" style="display:none">
+					<div class="title-box"><label class="title-label">Corneal centering</label></div>
+					<label>Tunnels are to be placed at 7mm calculate based on geometric center of the cornea using an 11 mm marker.</label>				
+				</div>
 				
 				<div id="astigmatismDiv" style="display:none">
-					<div class="title-box"><label class="title-label">ASTIGMATISM</label></div>
+					<div class="title-box"><label class="title-label">Astigmatism</label></div>
 					<label id="astigmatismlbl">At steepest axis: <span id="astigmatismvalue" name="astigmatismvalue" ></span></label>				
 				</div>
 				
 				<div id="comaDiv" style="display:none">
-					<div class="title-box"><label class="title-label">COMA</label></div>
+					<div class="title-box"><label class="title-label">Coma</label></div>
 					<label id="comalbl">At steepest axis: <span id="comavalue-result" name="comavalue-result" ></span></label>				
 				</div>
 				
 				<div id="refractionDiv" style="display:none">
-					<div class="title-box"><label class="title-label">REFRACTION</label></div>
+					<div class="title-box"><label class="title-label">Refraction</label></div>
 					<label id="spherepowerlbl">Sphere Power: <span id="spherepowervalue-result" name="spherepowervalue-result" ></span></label>
 					<label id="cyllbl">Sphere Power: <span id="cylvalue-result" name="cylvalue-result" ></span></label>
 					<label id="axislbl">Sphere Power: <span id="axisvalue-result" name="axisvalue-result" ></span></label>	
 				</div>
 				<div id="coneapexDiv" style="display:none">
-					<div class="title-box"><label class="title-label">CONE APEX</label></div>
+					<div class="title-box"><label class="title-label">Cone apex</label></div>
 					<label id="coneapexlbl">Cone Apex Position: <span id="coneapexvalue-result" name="coneapexvalue-result" ></span></label>
 					<label style="display:block" id="coneapexposlbl">Position from topographical: <span id="coneapexpos-result" name="coneapexpos-result" ></span></label>
 				</div>
@@ -261,7 +313,7 @@
 				
 				
 				<div id="ferraraRingDiv" style="display:none">
-					<div id="ferraraRingHead" class="title2-box" style="float:left"><label class="title-label">RINGS</label></div>
+					<div id="ferraraRingHead" class="title2-box" style="float:left"><label class="title-label">Rings</label></div>
 					<a href="#popupmanualHead" data-rel="popup"><img class="img-help" src="img/ayuda.png"/></a>
 					<div data-role="popup" id="popupmanualHead">
 						<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
@@ -278,7 +330,7 @@
 				</div>
 				
 				<div id="incisionDiv">
-					<div class="title-box"><label class="title-label">INCISION</label></div>
+					<div class="title-box"><label class="title-label">Incision</label></div>
 					<!-- FERRARA5 AND FERRARA6 -->
 					<div id="incisionF5F6" style="display:none">
 						<label id="incisionp">Incision at: <span id="incision-result" name="incision-result"></span></label>
@@ -292,33 +344,26 @@
 						<label id="ManualIncisionDepth" align="justify"><b>Depth:</b>Ultrasonic pachymetry should be used at the incision sight in the surgical room (a minimum of 450 microns if using 500 SK) the incision should be performed with the diamond blade calculated at 80% of the value obtained from the pachymetry.</label>
 					</div>
 					
-					<div id="laserdiv" style="display:none" class="title2-box" style="float:left"><label class="title-label">Laser (FEMTO)</label></div>
+					<div id="laserdiv" style="display:none; float:left"><label class="title-label">Laser (FEMTO)</label></div>
 						<a href="#popupLaser" data-rel="popup"><img class="img-help" src="img/ayuda.png"/></a>
 						<div data-role="popup" id="popupLaser">
 							<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
 							Please contact your femtosecond laser’s manufacturer in order to get the best parameters to introduce.		
-					</div>
+						</div>
 					<label id="laserExplain">Please contact your laser manufacturer…</label>
 				</div>	
 			
 			
 				<div id="imgNomoDiv">
 					<div class="title-box"><label class="title-label">Imagen</label></div>
-					<div id="imgNomo" style="height:300px">
+					<div id="imgNomo" style="height:200px">
 					
 					</div>
 				</div>
-
+			<a id="linkback-index" style="margin-top:60px" href="/#cuestionary-page" data-role="button"  data-icon="arrow-l" data-iconpos="left">Back</a>
 			</div>
 		</div>
-		
-		
-		
-		
-		
-		
-		
-		
+
 	</body>
 </html>	
 	
