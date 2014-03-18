@@ -68,7 +68,6 @@
     -->
 
     <!-- Define app icon for each platform. -->
-    <icon src="icon.png" />
     <icon src="res/icon/drawable-hdpi/appicon.png"   gap:platform="android"    gap:density="hdpi" />
 	<icon src="res/icon/drawable-ldpi/appicon.png"   gap:platform="android"    gap:density="ldpi" />
     <icon src="res/icon/drawable-mdpi/appicon.png"   gap:platform="android"    gap:density="mdpi" />
@@ -85,10 +84,10 @@
     <icon src="res/icon/windows-phone/icon-173.png" gap:platform="winphone"   gap:role="background" />
 
     <!-- Define app splash screen for each platform. -->
-    <gap:splash src="res/android/images/res-en-notlong-port-hdpi/default.png"   gap:platform="android"    gap:density="hdpi" />
-    <gap:splash src="res/android/images/res-en-notlong-port-mdpi/default.png"   gap:platform="android"    gap:density="mdpi" />
-    <gap:splash src="res/android/images/res-en-notlong-port-hdpi/default.png"   gap:platform="android"    gap:density="hdpi" />
-    <gap:splash src="res/android/images/res-en-notlong-port-xhdpi/default.png"  gap:platform="android"    gap:density="xhdpi" />
+    <gap:splash src="res/android/images/drawable-hdpi/universo512.9.png"   gap:platform="android"    gap:density="hdpi" />
+    <gap:splash src="res/android/images/drawable-mdpi/universo512.9.png"   gap:platform="android"    gap:density="mdpi" />
+    <gap:splash src="res/android/images/drawable-xhdpi/universo512.9.png"   gap:platform="android"    gap:density="hdpi" />
+    <gap:splash src="res/android/images/drawable-xxhdpi/universo512.9.png"  gap:platform="android"    gap:density="xhdpi" />
     <gap:splash src="res/screen/blackberry/screen-225.png"         gap:platform="blackberry" />
     <gap:splash src="res/screen/ios/screen-iphone-portrait.png"    gap:platform="ios"     width="320" height="480" />
     <gap:splash src="res/screen/ios/screen-iphone-portrait-2x.png" gap:platform="ios"     width="640" height="960" />
